@@ -41,7 +41,13 @@ public class ItemsController : ControllerBase
     [HttpPost]
     public ActionResult<ItemDto> CreateItem(CreateItemDto itemDto)
     {
-        Item item = new() { Id = Guid.NewGuid(), Name = itemDto.Name, Price = itemDto.Price, CreatedDate = DateTimeOffset.UtcNow };
+        Item item = new()
+        {
+            Id = Guid.NewGuid(),
+            Name = itemDto.Name,
+            Price = itemDto.Price,
+            CreatedDate = DateTimeOffset.UtcNow
+        };
 
         repository.CreateItem(item);
 
@@ -59,7 +65,11 @@ public class ItemsController : ControllerBase
             return NotFound();
         }
 
-        Item updatedItem = existingItem with { Name = itemDto.Name, Price = itemDto.Price };
+        Item updatedItem = existingItem with
+        {
+            Name = itemDto.Name,
+            Price = itemDto.Price
+        };
 
         repository.UpdateItem(updatedItem);
 
