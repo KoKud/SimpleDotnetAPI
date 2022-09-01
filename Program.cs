@@ -80,3 +80,7 @@ app.Run();
 //cmd: docker run -it --rm -p 8080:80 -e MongoDbSettings:Host=mongo -e MongoDbSettings:Password=password1 --network=net5tutorial catalog:v1
 //cmd: docker tag catalog:v1 kokud/catalog:v1
 //cmd: docker push kokud/catalog:v1
+
+//KUBERNETES
+//cmd: minikube start
+//cmd: kubectl create secret generic catalog-secrets --from-literal=mongodb-password='password1'
